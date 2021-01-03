@@ -41,23 +41,103 @@
 
       <div class="directions">أدخل درجاتك، كل درجة في الحقل الخاص بها</div>
 
-      <input id="Quizes" type="text" />
-      <input id="Midterm" type="text" />
-      <input id="FinalTest" type="text" />
-      <input id="Oral" type="text" />
+      <input id="Quizes" type="text"
+          dir="rtl"
+          type="text"
+          placeholder="Quizes"
+          id="weight"
+          style="
+            text-align: center;
+            font-size: 1rem;
+            margin: 0.4rem;
+            margin-bottom: 1rem;
+          " />
+      <input id="Midterm" type="text"
+      dir="rtl"
+      type="text"
+      placeholder="Midterm"
+      id="weight"
+      style="
+        text-align: center;
+        font-size: 1rem;
+        margin: 0.4rem;
+        margin-bottom: 1rem;
+      " />
+      <input id="FinalTest" type="text"
+      dir="rtl"
+          type="text"
+          placeholder="FinalTest"
+          id="weight"
+          style="
+            text-align: center;
+            font-size: 1rem;
+            margin: 0.4rem;
+            margin-bottom: 1rem;
+          " />
+      <input id="Oral" type="text" 
+      dir="rtl"
+          type="text"
+          placeholder="Oral"
+          id="weight"
+          style="
+            text-align: center;
+            font-size: 1rem;
+            margin: 0.4rem;
+            margin-bottom: 1rem;
+          "/>
 
       <input
         id="submitButton"
         type="button"
         value="calculate"
-        onClick="submit()"
+        onClick="submit();"
       />
 
       <p>مجموع درجاتك (بالأرقام) هو</p>
-      <div id="total_grades"></div>
+      <div id="total_grades">
+        <h1></h1>
+      </div>
 
       <p>درجتك النهائية هي (بالأحرف)</p>
-      <div id="final_grade"></div>
+      <div >
+        <h1 id = "final_grade" ></h1>
+      </div>
+      
     </div>
+
+    <script>
+      function submit(){
+
+        let Q= parseInt(document.getElementById("Quizes").value)
+        let M= parseInt(document.getElementById("Midterm").value)
+        let F= parseInt(document.getElementById("FinalTest").value)
+        let O= parseInt(document.getElementById("Oral").value)
+        let total = Q + M + F + O
+
+        
+        if (total <= 100 && total >= 90){
+          document.getElementById("total_grades").innerText= total
+          document.getElementById("final_grade").innerText= "A"
+        }
+        else if (total >= 80){
+          document.getElementById("total_grades").innerText= total
+          document.getElementById("final_grade").innerText= "B"
+        }
+        else if (total >= 70){
+          document.getElementById("total_grades").innerText= total
+          document.getElementById("final_grade").innerText= "C"
+        }
+        else if(total >= 60){
+          document.getElementById("total_grades").innerText= total
+          document.getElementById("final_grade").innerText= "D"
+        }
+        else{
+          document.getElementById("total_grades").innerText= total
+          document.getElementById("final_grade").innerText= "F"
+        }
+
+      }
+     
+    </script>
   </body>
 </html>
